@@ -241,33 +241,40 @@
             </button>
           </div>
           <!-- life - score -->
-          <div class="flex justify-between w-[90%] lg:w-[70%] mt-8">
+          <div
+            id="life-score"
+            class="flex justify-between w-[90%] lg:w-[70%] mt-8"
+          >
             <button
               class="inline-flex items-center justify-center whitespace-nowrap text-[16px] font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 bg-[#894189] text-white rounded-full px-6 py-2"
             >
               Life
               <img class="mx-1" src="./images/heart.svg" alt="" />
-              1</button
-            ><button
+              <span id="life"> 5 </span>
+            </button>
+            <button
               class="inline-flex items-center justify-center whitespace-nowrap text-[16px] font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 bg-[#360490] text-white rounded-full px-6 py-2"
             >
               Score
               <img class="mx-1" src="./images/doller.svg" alt="" />
-              1
+              <span id="score"> 0 </span>
             </button>
           </div>
         </div>
       </section>
       <!-- score display  -->
-      <section id="score" class="hidden">
+      <section id="final-score" class="hidden">
         <div class="flex h-screen w-screen items-center justify-center">
           <div
             class="flex w-[400px] flex-col items-center rounded-xl bg-white/10 p-8 text-white shadow-xl"
           >
+            <p class="text-2xl text-[#ffff] font-medium mb-2">Game Over! 🙉</p>
             <h1 class="text-6xl font-bold">
-              Score : <span class="text-6xl font-medium">14</span>
+              Score :
+              <span id="last-score" class="text-6xl font-medium">14</span>
             </h1>
             <button
+              id="play-again"
               class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-5 py-2 mt-4 bg-white text-[#010313] hover:bg-purple-100 focus:ring focus:ring-purple-300 mb-2"
             >
               Play Again
