@@ -35,6 +35,7 @@ function removeBg(elementId) {
 
 // play function
 function gameOver() {
+  isGamePlayMode = false;
   hideClass("home");
   hideClass("playground");
   showClass("final-score");
@@ -44,6 +45,7 @@ function gameOver() {
 
 // play again
 function playAgain() {
+  isGamePlayMode = true;
   hideClass("home");
   hideClass("final-score");
   showClass("playground");

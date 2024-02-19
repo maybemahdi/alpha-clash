@@ -1,8 +1,15 @@
 document.getElementById("playBtn").addEventListener("click", function () {
+  isGamePlayMode = true;
   hideClass("home");
   showClass("playground");
   continueGame();
 });
+
+// audio effects
+let audio = new Audio();
+
+//default game mode on any screen
+let isGamePlayMode = false;
 
 // continue game
 function continueGame() {
@@ -12,6 +19,7 @@ function continueGame() {
   setBg(alphabet);
 }
 document.addEventListener("keyup", function (event) {
+  if (isGamePlayMode === false) return;
   let pressedKey = event.key;
   let expectedKey = document
     .getElementById("alphabetShow")
@@ -28,6 +36,9 @@ document.addEventListener("keyup", function (event) {
   }
   //main condition
   if (pressedKey === expectedKey) {
+    audio.src = "./sounds/success.mp3";
+    audio.play();
+
     removeBg(expectedKey);
     //get current score
     let currentScoreElement = document.getElementById("score");
@@ -40,6 +51,9 @@ document.addEventListener("keyup", function (event) {
     currentScoreElement.innerText = newScore;
     continueGame();
   } else {
+    audio.src = "./sounds/wrong.mp3";
+    audio.play();
+
     //get current life
     let currentLifeElement = document.getElementById("life");
     let currentLifeText = currentLifeElement.innerText;
