@@ -5,6 +5,9 @@ document.getElementById("playBtn").addEventListener("click", function () {
   continueGame();
 });
 
+// get art board
+let artBoard = document.getElementById("art-board");
+
 // audio effects
 let audio = new Audio();
 
@@ -64,6 +67,10 @@ document.addEventListener("keyup", function (event) {
     // update new life
     currentLifeElement.innerText = newLife;
 
+    // new life percentage for changing bg while pressing wrong key
+    let newLifePer = (newLife / 5) * 100;
+    artBoard.style.background = `linear-gradient(#FFFFFFB3 ${newLifePer}%, red)`;
+
     if (newLife === 0) {
       gameOver();
       document
@@ -73,4 +80,18 @@ document.addEventListener("keyup", function (event) {
         });
     }
   }
+});
+
+// model opening if mouse goes out of screen
+let modal = document.getElementById("modal-box");
+document.body.onmousemove = modalOpen;
+
+function modalOpen(event) {
+  if (event.clientY < 3) {
+    modal.classList.remove("hidden");
+  }
+}
+
+document.getElementById("modal-close").addEventListener("click", function () {
+  modal.classList.add("hidden");
 });

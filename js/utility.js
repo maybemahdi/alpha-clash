@@ -41,6 +41,7 @@ function gameOver() {
   showClass("final-score");
   let lastScore = document.getElementById("score").innerText;
   document.getElementById("last-score").innerText = lastScore;
+  artBoard.style.background = `linear-gradient(#FFFFFFB3 100%, red)`;
 }
 
 // play again
